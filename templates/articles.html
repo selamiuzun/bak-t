@@ -1,0 +1,20 @@
+{% extends "ekran.html" %}
+{% block body %}
+{% if makaleler %}
+<center>
+<ul class="list-group">
+{% for makale in makaleler %}
+
+<li class="list-group-item"><a href="makale/{{makale.id}}"> <p>{{makale.title}} : {{makale.author}} {{makale.date}}</p></a></li>
+
+{% endfor %}
+</ul>
+
+</center>
+{% else %}
+<div class="alert alert-danger">Henüz Makale bulunmuyor</div>
+{% endif %}
+
+
+
+{% endblock body %}

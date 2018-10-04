@@ -1,0 +1,27 @@
+{% extends "ekran.html" %}
+{% block body %}
+<center>
+<p><button type="button"class="btn btn-danger" onclick="window.location.href='{{"/baslikekle"}}';">Başlık ekle</button>         <button type="button"class="btn btn-success" onclick="window.location.href='{{"/basliklarim"}}';">Başlıklarım</button></p>
+<hr>
+{% if sorular %}
+<form action="/search" method="post">
+    <input type="text" name = "keyword" class="input-sm" maxlength="64" placeholder="Anahtar girin..">
+    <button type="submit" class="btn btn-outline-dark">Ara</button>
+</form>
+<p> </p>
+
+<hr>
+<ul class="list-group">
+{% for soru in sorular %}
+<li class="list-group-item"><a href="forum_baslik/{{soru.id}}">{{soru.title}}</a></li>
+{% endfor %}
+</ul>
+
+</center>
+{% else %}
+<div class="alert alert-danger">Bu forumda henüz soru bulunmuyor</div>
+{% endif %}
+
+
+
+{% endblock body %}

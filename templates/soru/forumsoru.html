@@ -1,0 +1,41 @@
+{% extends "ekran.html" %}
+
+{% block body %}
+
+{% if soru%}
+
+<center>
+<h4>{{soru.title}}</h4>
+<hr>
+Bu başlık {{soru.author}} tarafından {{soru.date}} tarihinde oluşturulmuştur
+<hr>
+</center>
+{{soru.content|safe}}
+<br>
+<hr>
+{% from "formhelpers.html" import render_field %}
+<form method=post>
+        <dl>
+          {{render_field(form.yanıt ,class = "form-control") }}
+        </dl>
+        <p><input type=submit class="btn btn-success" value=Onay>
+      </form>
+<hr>
+{% if yanıtlar%}
+{% for yanıt in yanıtlar %}
+{{yanıt["author"]}} : {{yanıt["yanıt"]}} <br>
+
+{% endfor %}
+{% else %}
+{% endif %}
+
+
+{% else %}
+<div class="alert alert-warning">Böyle bir soru bulunmuyor...</div>
+{% endif %}
+
+
+{% endblock body %}
+
+
+

@@ -1,0 +1,20 @@
+{% extends "ekran.html"%}
+
+{% block body %}
+{% from "formhelpers.html" import render_field %}
+
+<h3>Kayıt olun</h3>
+<hr>
+<form method=post>
+        <dl>
+          {{ render_field(form.name ,class = "form-control") }}
+          {{ render_field(form.email ,class = "form-control") }}
+          {{ render_field(form.username ,class = "form-control") }}
+          {{ render_field(form.password ,class = "form-control") }}
+          {{ render_field(form.confirm ,class = "form-control") }}
+        </dl>
+        <center>
+        <p><input type=submit class="btn btn-success" value=Onay>
+        </center>
+      </form>
+{% endblock body %}

@@ -1,0 +1,18 @@
+{% extends "ekran.html" %}
+
+{% block body %}
+<center>
+<h3>Giriş yap</h3>
+<hr>
+{% from "formhelpers.html" import render_field %}
+<form method=post>
+        <dl>
+          {{ render_field(form.username) }}
+          {{ render_field(form.password) }}
+        </dl>
+        <p><input type=submit class="btn btn-success" value=Onay>
+      </form>
+      <a href="/register">Hala kayıt olmadınız mı?</a>
+</center>
+{% endblock body %}
+

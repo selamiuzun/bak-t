@@ -1,0 +1,21 @@
+{% extends "ekran.html" %}
+
+{% block body %}
+
+{% if makale%}
+
+<center>
+<h4>{{makale.title}}</h4>
+<hr>
+Bu başlık {{makale.author}} tarafından {{makale.date}} tarihinde oluşturulmuştur
+<hr>
+</center>
+{{makale.content|safe}}
+<br>
+
+{% else %}
+<div class="alert alert-warning">Böyle bir makale bulunmuyor...</div>
+{% endif %}
+
+{% endblock body %}
+
